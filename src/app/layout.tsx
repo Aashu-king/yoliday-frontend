@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Sidebar } from "@/common/sidebar";
+import { Header } from "@/common/header";
+// import { MobileHeader } from "@/common/mobileHeader";
+import { MobileFooter } from "@/common/mobileFooter";
+import { Toaster } from 'sonner';
+import QueryProvider from '@/components/queryProvider';
+import { CartProvider } from "@/context/cart.context";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,11 +32,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50`}>
+        <QueryProvider>
+          <CartProvider>
+            <div className="flex h-screen">
+              <Sidebar />
+
+              <div className="flex-1 flex flex-col h-screen overflow-hidden">
+                <Header />
+
+                {/* MobileHeader will now be rendered inside individual pages if needed */}
+
+                <main className="flex-1 overflow-auto p-4">
+                  {children}
+                </main>
+
+                <MobileFooter />
+              </div>
+            </div>
+          </CartProvider>
+        </QueryProvider>
+        <Toaster richColors position="top-right" />
       </body>
     </html>
   );
 }
+
