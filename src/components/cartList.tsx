@@ -73,7 +73,7 @@ export default function CartList({
   console.log('userId: ', userId);
   
   if (isLoading) return <p>Loading...</p>;
-  if (!fullData || fullData.length === 0) return <p>No Cart Items found matching your search criteria.</p>;
+  if (!fullData || fullData.length === 0) return <p>No Cart Items found.</p>;
     
   return (
     <div className="space-y-6">
