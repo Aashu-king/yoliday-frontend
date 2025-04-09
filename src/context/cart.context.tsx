@@ -36,7 +36,7 @@ interface CartResponse {
 }
 
 const fetchCart = async (userId: string): Promise<CartResponse> => {
-  const res = await axios.get(`http://localhost:8080/cart`, {
+  const res = await axios.get(`https://yoliday-backend-hm1v.onrender.com/cart`, {
     params: {
       userId: userId,
     },

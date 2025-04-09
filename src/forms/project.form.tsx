@@ -30,17 +30,17 @@ interface CategoryDropdownInterface {
 }
 
 const fetchUsers = async () => {
-    const res = await axios.get('http://localhost:8080/user/dropdown');
+    const res = await axios.get('https://yoliday-backend-hm1v.onrender.com/user/dropdown');
     return res.data.data;
 };
 
 const fetchCategories = async () => {
-    const res = await axios.get('http://localhost:8080/category/dropdown');
+    const res = await axios.get('https://yoliday-backend-hm1v.onrender.com/category/dropdown');
     return res.data.data;
 };
 
 const createProject = async (data: ProjectFormData) => {
-    const response = await axios.post('http://localhost:8080/project', data);
+    const response = await axios.post('https://yoliday-backend-hm1v.onrender.com/project', data);
     return response.data;
 };
 

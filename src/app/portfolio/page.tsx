@@ -46,7 +46,7 @@ export default function PortfolioPage() {
   }, [activeTab]);
 
   const fetchProjects = async () => {
-    const response = await axios.get("http://localhost:8080/project", {
+    const response = await axios.get("https://yoliday-backend-hm1v.onrender.com/project", {
       params: {
         search: debouncedSearchTerm,
         limit: limit,
@@ -57,7 +57,7 @@ export default function PortfolioPage() {
   };
 
   const fetchCartItems = async () => {
-    const response = await axios.get("http://localhost:8080/cart", {
+    const response = await axios.get("https://yoliday-backend-hm1v.onrender.com/cart", {
       params: {
         search: debouncedSearchTerm,
         limit: limit,

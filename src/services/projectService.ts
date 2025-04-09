@@ -3,7 +3,7 @@ import axios from "axios";
 import { Project, ProjectQuery, PaginatedResponse } from "../types/project.types";
 
 class ProjectService {
-  private baseUrl = "http://localhost:8080/projects";
+  private baseUrl = "https://yoliday-backend-hm1v.onrender.com/projects";
 
   async getProjects(query: ProjectQuery): Promise<PaginatedResponse<Project>> {
       const response = await axios.get<PaginatedResponse<Project>>(this.baseUrl, {

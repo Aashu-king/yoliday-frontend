@@ -45,13 +45,13 @@ export default function PortfolioCard({ projects, isLoading }: PortfolioCardProp
 
   const mutation = useMutation({
     mutationFn: async ({ userId, projectId }: { userId: string; projectId: string }) => {
-      await axios.post("http://localhost:8080/cart", {
+      await axios.post("https://yoliday-backend-hm1v.onrender.com/cart", {
         userId,
         projectId,
         quantity: 1,
       });
 
-      const newCart = await axios.get(`http://localhost:8080/cart?userId=${userId}`);
+      const newCart = await axios.get(`https://yoliday-backend-hm1v.onrender.com/cart?userId=${userId}`);
       return newCart.data.data;
     },
     onSuccess: (data) => {
@@ -76,7 +76,7 @@ export default function PortfolioCard({ projects, isLoading }: PortfolioCardProp
         >
           <div className="w-full md:w-32 h-24 relative">
             <Image
-              src={`http://localhost:8080/upload/${project.projectImages[0]?.image_url}`}
+              src={`https://yoliday-backend-hm1v.onrender.com/upload/${project.projectImages[0]?.image_url}`}
               alt={project.title}
               fill
               className="object-cover rounded-md"
